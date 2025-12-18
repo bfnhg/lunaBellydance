@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.lamp-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.3) 0%,
+    rgba(249, 115, 22, 0.2) 20%,
+    rgba(249, 115, 22, 0.1) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  filter: blur(40px);
+}
+
+.hero-title {
+  background: linear-gradient(
+    to bottom,
+    #fbbf24,
+    #f59e0b,
+    #d97706
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 80px rgba(251, 191, 36, 0.5);
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.5));
+  }
+  to {
+    filter: drop-shadow(0 0 40px rgba(251, 191, 36, 0.8));
+  }
+}
